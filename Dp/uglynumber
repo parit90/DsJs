@@ -1,0 +1,51 @@
+function uglynumber(n){
+ var arr = new Array(n);
+ arr = [1,2,3,4,5];
+
+ for(var i=6; arr.length!=n; i++){
+	var pf = isprimefactor(i);
+	
+	if(pf){
+		arr.push(i);
+	}	
+ }
+ return arr;
+}
+
+var isprimefactor = function(num){
+
+	if(num==0||num==1){
+		return 1;
+	}
+
+	if(num%2==0 && num!=0){
+		num=num/2;
+		bit=1;
+	}
+	if(num%3==0 && num!=0){
+		num=num/3;
+		bit=1;	
+	}
+	if(num%5==0 && num!=0){
+		num=num/5;
+		bit=1;	
+	}
+	else{
+		bit=0;	
+	}
+
+	if(!bit){
+		return 0;
+	}	
+	
+
+	if(bit && num!=1){
+		isprimefactor(num)
+	}
+
+}
+
+var a = uglynumber(7);
+console.log("The number is ...",a);
+
+
